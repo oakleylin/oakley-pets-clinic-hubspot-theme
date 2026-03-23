@@ -1,0 +1,196 @@
+﻿Diagnose log at 2026-03-23T02:58:16Z
+
+AppPath: C:\Users\F086\AppData\Local\Programs\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Users\F086\AppData\Local\Programs\Git\mingw64\bin\
+Version: 2.7.0+d1dd8a4ded75a2b1faae653157ac1699609442ad
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 22631)
+Reading environment variables... OK
+ Variables:
+SESSIONNAME=Console
+ProgramFiles(x86)=C:\Program Files (x86)
+MSYSTEM=MINGW64
+ProgramW6432=C:\Program Files
+windir=C:\Windows
+VSCODE_PROCESS_TITLE=extension-host (agent-exec) mypet [3-24]
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 170 Stepping 4, GenuineIntel
+TMP=C:\Users\F086\AppData\Local\Temp
+PROCESSOR_ARCHITECTURE=AMD64
+SystemDrive=C:
+Path=C:/Users/F086/AppData/Local/Programs/Git/mingw64/libexec/git-core;C:\Users\F086\AppData\Local\Programs\Git\mingw64\bin;C:\Users\F086\AppData\Local\Programs\Git\usr\bin;C:\Users\F086\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Common Files\Pulse Secure\TNC Client Plugin\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;c:\Users\K793\AppData\Local\Programs\cursor\resources\app\bin;c:\Users\K793\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\nodejs\;C:\Users\F086\AppData\Local\Microsoft\WindowsApps;C:\Users\F086\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\F086\AppData\Roaming\npm;C:\Users\F086\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\F086\AppData\Local\Programs\Git\cmd;C:\Users\F086\AppData\Local\Programs\Antigravity\bin
+VSCODE_ESM_ENTRYPOINT=vs/workbench/api/node/extensionHostProcess
+VSCODE_CWD=C:\Program Files\cursor
+USERPROFILE=C:\Users\F086
+_ZO_DOCTOR=0
+PROCESSOR_REVISION=aa04
+TEMP=C:\Users\F086\AppData\Local\Temp
+FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer
+FPS_BROWSER_USER_PROFILE_STRING=Default
+LOGONSERVER=\\UDC1
+TERM=dumb
+NO_COLOR=1
+SystemRoot=C:\Windows
+CHROME_CRASHPAD_PIPE_NAME=\\.\pipe\crashpad_18736_HYSHFCINGLFGOUVT
+GIT_EXEC_PATH=C:/Users/F086/AppData/Local/Programs/Git/mingw64/libexec/git-core
+CURSOR_EXTENSION_HOST_ROLE=agent-exec
+PLINK_PROTOCOL=ssh
+USERDNSDOMAIN=AD.CETRA.ORG.TW
+OneDrive=C:\Users\F086\OneDrive - 財團法人中華民國對外貿易發展協會
+USERDOMAIN_ROAMINGPROFILE=DOMAIN
+CommonProgramFiles=C:\Program Files\Common Files
+CURSOR_AGENT=1
+EFC_22720=1
+ProgramData=C:\ProgramData
+LC_CTYPE=C.UTF-8
+HOMEPATH=\Users\F086
+FORCE_COLOR=0
+COMPUTERNAME=1735DT1132
+VSCODE_HANDLES_UNCAUGHT_ERRORS=true
+ALLUSERSPROFILE=C:\ProgramData
+CommonProgramW6432=C:\Program Files\Common Files
+USERNAME=F086
+OneDriveCommercial=C:\Users\F086\OneDrive - 財團法人中華民國對外貿易發展協會
+CURSOR_WORKSPACE_LABEL=mypet
+VSCODE_IPC_HOOK=\\.\pipe\0f213199-2.6.13-main-sock
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+VSCODE_PID=18736
+CURSOR_TRACE_ID=0b4cf24fc9444929ae7c0482433c26a8
+GIT_TRACE2_PARENT_SID=69549686-025c-4fe3-add4-bf6d45c82f0b
+ANTHROPIC_API_KEY=sk-RzcE_PE5DNiaxe7ilQqo2A
+NUMBER_OF_PROCESSORS=18
+OS=Windows_NT
+ZES_ENABLE_SYSMAN=1
+ProgramFiles=C:\Program Files
+ComSpec=C:\Windows\system32\cmd.exe
+VSCODE_CRASH_REPORTER_PROCESS_TYPE=extensionHost
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+HOME=C:\Users\F086
+PSModulePath=C:\Users\F086\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+GIT_TERMINAL_PROMPT=0
+TMPDIR=C:\Users\F086\AppData\Local\Temp
+APPDATA=C:\Users\F086\AppData\Roaming
+USERDOMAIN=DOMAIN
+PROCESSOR_LEVEL=6
+LOCALAPPDATA=C:\Users\F086\AppData\Local
+VSCODE_NLS_CONFIG={"userLocale":"en-us","osLocale":"zh-tw","resolvedLanguage":"en","defaultMessagesFile":"C:\\Program Files\\cursor\\resources\\app\\out\\nls.messages.json","locale":"en-us","availableLanguages":{}}
+PSExecutionPolicyPreference=Bypass
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+VSCODE_CODE_CACHE_PATH=C:\Users\F086\AppData\Roaming\Cursor\CachedData\60faf7b51077ed1df1db718157bbfed740d2e160
+PUBLIC=C:\Users\Public
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\F086\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\F086\AppData\Local\Temp\e88446aeab7e45cb2bf157dd'... OK
+Reading from temporary file 'C:\Users\F086\AppData\Local\Temp\e88446aeab7e45cb2bf157dd'... OK
+Deleting temporary file 'C:\Users\F086\AppData\Local\Temp\e88446aeab7e45cb2bf157dd'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\F086
+UserDataDirectoryPath: C:\Users\F086\.gcm
+GetCurrentDirectory(): C:\Users\F086\Desktop\Hub作業\mypet
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:52366/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.53.0.windows.1'
+Locating current repository...Git repository at 'C:/Users/F086/Desktop/Hub雿平/mypet/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	core.fscache=true
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	core.symlinks=false
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	pull.rebase=false
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	credential.helper=manager
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Users/F086/AppData/Local/Programs/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/F086/.gitconfig	user.email=oakley.lin@taitra.org.tw
+file:C:/Users/F086/.gitconfig	user.name=oakleylin
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/oakleylin/oakley-pets-clinic-hubspot-theme.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\F086\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\F086\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
