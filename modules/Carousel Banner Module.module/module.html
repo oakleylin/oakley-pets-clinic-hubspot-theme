@@ -1,0 +1,107 @@
+{# 載入 Swiper.js #}
+{{ require_css("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css") }}
+{{ require_js("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js", "footer") }}
+
+{% require_css %}
+<style>
+  /* 動態處理高度與對齊 */
+  #hero-{{ name }} {
+    {% if module.style.min_height == 'screen' %}
+      height: 100vh;
+    {% elif module.style.min_height == 'large' %}
+      height: 800px;
+    {% else %}
+      height: 500px;
+    {% endif %}
+  }
+
+  /* 動態處理遮罩透明度 (將 0-100 轉為 0-1) */
+  #hero-{{ name }} .slide-overlay {
+    {% set opacity = module.style.overlay_opacity / 100 %}
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, {{ opacity }}) 0%,
+      rgba(0, 0, 0, {{ opacity * 0.7 }}) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* 動態處理文字對齊 */
+  #hero-{{ name }} .slide-content-container {
+    display: flex;
+    text-align: {{ module.style.text_alignment }};
+    justify-content: {{ module.style.text_alignment == 'left' ? 'flex-start' : (module.style.text_alignment == 'right' ? 'flex-end' : 'center') }};
+  }
+  
+  {% if module.style.text_alignment == 'center' %}
+  #hero-{{ name }} .slide-content { margin: 0 auto; }
+  {% elif module.style.text_alignment == 'right' %}
+  #hero-{{ name }} .slide-content { margin-left: auto; }
+  {% endif %}
+</style>
+{% end_require_css %}
+
+<div id="hero-{{ name }}" 
+     class="custom-hero-carousel swiper" 
+     data-autoplay="{{ module.autoplay }}" 
+     data-speed="{{ module.autoplay_speed }}"
+     data-dots="{{ module.show_dots }}"
+     data-arrows="{{ module.show_arrows }}">
+  
+  <div class="swiper-wrapper">
+    {% for item in module.slides %}
+      <div class="swiper-slide">
+        
+        <!-- 背景圖片 -->
+        {% if item.slide_image.src %}
+          <div class="slide-bg-image" style="background-image: url('{{ item.slide_image.src }}');"></div>
+        {% endif %}
+        
+        <!-- 動態漸層遮罩 -->
+        <div class="slide-overlay"></div>
+        
+        <!-- 內容區塊 -->
+        <div class="slide-content-container">
+          <div class="slide-content">
+            
+            {% if item.slide_badge %}
+              <div class="slide-badge">{{ item.slide_badge }}</div>
+            {% endif %}
+            
+            {% if item.slide_headline %}
+              <div class="slide-headline">{{ item.slide_headline }}</div>
+            {% endif %}
+            
+            {% if item.slide_subtext %}
+              <div class="slide-subtext">{{ item.slide_subtext }}</div>
+            {% endif %}
+            
+            {% if item.slide_cta_text %}
+              {% set href = item.slide_cta_url.url.href|default(item.slide_cta_url.href)|default("#") %}
+              {% if item.slide_cta_url.url.type is equalto "EMAIL_ADDRESS" %}
+                {% set href = "mailto:" + item.slide_cta_url.url.href %}
+              {% endif %}
+              
+              {% set rel = [] %}
+              {% if item.slide_cta_url.no_follow %}{% do rel.append("nofollow") %}{% endif %}
+              {% if item.slide_cta_url.open_in_new_tab %}{% do rel.append("noopener") %}{% endif %}
+              
+              <a href="{{ href }}" class="slide-btn"
+                 {% if item.slide_cta_url.open_in_new_tab %}target="_blank"{% endif %}
+                 {% if rel %}rel="{{ rel|join(' ') }}"{% endif %}>
+                {{ item.slide_cta_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- 控制元件 -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-fraction-custom"></div>
+  
+</div>

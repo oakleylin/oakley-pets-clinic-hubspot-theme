@@ -1,0 +1,187 @@
+/* =========================================
+   1. Header 外層容器 & 基礎設定
+========================================= */
+.site-header {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  font-family: sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================
+   2. 左側 Logo 區域
+========================================= */
+.header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+
+/* 根據圖片調整：圓角方形 + 陰影 */
+.logo-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  background-color: #00bfa5;
+  border-radius: 12px; /* 改為圓角方形 */
+  box-shadow: 0 4px 10px rgba(0, 191, 165, 0.25); /* 淡淡的綠色陰影 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon-wrapper img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.logo-text { display: flex; flex-direction: column; justify-content: center; }
+.logo-title { font-size: 20px; font-weight: 600; color: #111827; line-height: 1.1; margin-bottom: 2px; }
+.logo-subtitle { font-size: 11px; font-weight: 500; color: #00bfa5; letter-spacing: 0.5px; }
+
+/* =========================================
+   3. 桌機版選單與功能區
+========================================= */
+.header-menu-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-nav { flex: 1; display: flex; justify-content: center; }
+.nav-list { list-style: none; padding: 0; margin: 0; display: flex; gap: 4px; }
+.nav-link {
+  text-decoration: none;
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.nav-link:hover { color: #111827; }
+.nav-link.active { background-color: #f0fdfa; color: #00bfa5; }
+
+/* 隱藏手機版專用元素 */
+.mobile-toggle-btn, .mobile-divider, .mobile-lang-label { display: none; }
+
+.header-actions { display: flex; align-items: center; gap: 16px; }
+
+/* 語系按鈕 (桌機版適配) */
+.lang-btn-group { display: flex; gap: 8px; }
+.lang-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #f8fafc;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+.lang-btn.active { background-color: #00bfa5; color: #ffffff; }
+.lang-sm { font-size: 11px; font-weight: 500; opacity: 0.8; margin-right: 2px; }
+
+.header-cta {
+  background-color: #00bfa5;
+  color: #ffffff !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.header-cta:hover { background-color: #00a896; }
+
+/* =========================================
+   4. RWD 手機與平板版 (重頭戲)
+========================================= */
+@media (max-width: 992px) {
+  .header-container { padding: 0 20px; }
+  
+  /* 顯示漢堡選單按鈕 */
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  /* 選單外層變成絕對定位的下拉選單 */
+  .header-menu-wrapper {
+    position: absolute;
+    top: 80px; /* 剛好接在 header 底部 */
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border-top: 1px solid #f1f5f9;
+    
+    /* 預設隱藏，靠 JS 加 class 展開 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  /* 展開狀態的 Class */
+  .header-menu-wrapper.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* 導覽列變垂直 */
+  .header-nav { width: 100%; justify-content: flex-start; margin-bottom: 10px; }
+  .nav-list { flex-direction: column; width: 100%; gap: 8px; }
+  .nav-item { width: 100%; }
+  .nav-link { padding: 14px 16px; width: 100%; box-sizing: border-box; }
+
+  /* 顯示分隔線與語系標籤 */
+  .mobile-divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #f1f5f9;
+    margin: 10px 0 20px 0;
+  }
+  .mobile-lang-label {
+    display: block;
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  /* 右側動作區變垂直排版 */
+  .header-actions { flex-direction: column; width: 100%; align-items: stretch; gap: 20px; }
+  .lang-switcher-wrapper { width: 100%; }
+  
+  /* 語系按鈕 50% 50% 撐滿 */
+  .lang-btn-group { display: flex; width: 100%; gap: 12px; }
+  .lang-btn { flex: 1; padding: 14px 0; }
+
+  /* CTA 按鈕 100% 撐滿 */
+  .header-cta { text-align: center; width: 100%; box-sizing: border-box; padding: 16px 0; font-size: 16px; }
+}

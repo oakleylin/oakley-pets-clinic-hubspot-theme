@@ -1,0 +1,98 @@
+/* --- 外層容器與基礎樣式 --- */
+.trust-badges-wrapper {
+  width: 100%;
+  padding: 50px 0;
+}
+
+.trust-badges-container {
+  display: flex;
+  flex-wrap: wrap; /* 允許換行 */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 35px 60px; /* 桌面版間距：上下 35px, 左右 60px */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  /* 桌面版不固定寬度，由內容撐開 */
+}
+
+/* 圖示尺寸維持 62px */
+.badge-icon-box {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-fixed-img {
+  width: 62px !important; 
+  height: auto !important;
+  display: block;
+  object-fit: contain;
+}
+
+/* 文字樣式 */
+.badge-text-content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+.badge-value {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.badge-label {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: #333333;
+  margin-top: 3px;
+}
+
+.badge-subtext {
+  font-size: 14px !important;
+  color: #666666;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* --- RWD：手機版改為兩個一組 --- */
+@media (max-width: 767px) {
+  .trust-badges-container {
+    gap: 30px 0px; /* 縮小上下間距，左右間距靠 width 控制 */
+    justify-content: space-between; /* 讓兩個標章各靠左右 */
+  }
+
+  .badge-item {
+    /* 強制設定為接近 50% 的寬度，扣掉一點邊距確保能並排 */
+    width: 48%; 
+    flex-direction: column; /* 手機版改為垂直排列（圖在上、字在下）視覺上會更平衡 */
+    text-align: center;
+    gap: 10px;
+  }
+
+  .badge-text-content {
+    align-items: center; /* 文字置中 */
+  }
+
+  .badge-fixed-img {
+    width: 50px !important; /* 手機版稍微縮小圖示避免太擠 */
+  }
+
+  .badge-value {
+    font-size: 20px !important; /* 手機版字體微調 */
+  }
+
+  .badge-label {
+    font-size: 15px !important;
+  }
+}

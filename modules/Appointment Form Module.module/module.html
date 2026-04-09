@@ -1,0 +1,156 @@
+<div class="appointment-module-wrapper">
+  
+  <!-- 模組標頭 -->
+  <div class="appointment-header">
+    <div class="badge-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      HubSpot Form Module
+    </div>
+    <h2>{{ module.section_title | default("Book a Clinic Appointment") }}</h2>
+    <p class="subtitle">{{ module.section_subtitle | default("Fill in the details below and our team will confirm your slot within a few hours. <br>For same-day or emergency visits, please call us directly.") }}</p>
+  </div>
+
+  <!-- 步驟進度條 -->
+  <div class="step-indicator">
+    <div class="step active" id="indicator-step-1">
+      <div class="step-number">1</div>
+      <div class="step-label">Your Details</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="indicator-step-2">
+      <div class="step-number">2</div>
+      <div class="step-label">Appointment</div>
+    </div>
+  </div>
+
+  <!-- 表單卡片區塊 -->
+  <div class="form-card-container">
+    <!-- 🚨 這裡已經幫你把專屬的 Portal ID 和 Form ID 寫進去了！ -->
+    <form id="customAppointmentForm" data-portal-id="51203041" data-form-id="619c1156-de0d-42bc-91d9-c02f5771e517">
+      
+      <!-- ================= Step 1: Your Details ================= -->
+      <div class="form-step active" id="form-step-1">
+        <h3 class="step-title">Your Information</h3>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number *</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(555) 000-0000" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="emailAddress">Email Address *</label>
+          <input type="email" id="emailAddress" name="emailAddress" placeholder="example@email.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="petType">Pet Type *</label>
+            <select id="petType" name="petType" required>
+              <option value="" disabled selected>Select pet type...</option>
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Rabbit">Rabbit</option>
+              <option value="Guinea Pig">Guinea Pig</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="petName">Pet's Name</label>
+            <input type="text" id="petName" name="petName" placeholder="Buddy">
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="btn-next">Next: Choose Appointment &rarr;</button>
+      </div>
+
+      <!-- ================= Step 2: Appointment ================= -->
+      <div class="form-step" id="form-step-2" style="display: none;">
+        <h3 class="step-title">Appointment Details</h3>
+        
+        <div class="form-group">
+          <label for="serviceType">Service Type *</label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="" disabled selected>Select service...</option>
+            <!-- 純手動選項，你可以自由增減 -->
+            <option value="General Checkup">General Checkup</option>
+            <option value="Vaccination">Vaccination</option>
+            <option value="Dental Cleaning">Dental Cleaning</option>
+            <option value="Surgery">Surgery</option>
+            <option value="Emergency Care">Emergency Care</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="appointmentDate">Date *</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+          </div>
+          <div class="form-group">
+            <label for="preferredTime">Preferred Time</label>
+            <select id="preferredTime" name="preferredTime">
+              <option value="09:00 AM">9:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 PM">1:00 PM</option>
+              <option value="02:00 PM">2:00 PM</option>
+              <option value="03:00 PM">3:00 PM</option>
+              <option value="04:00 PM">4:00 PM</option>
+              <option value="05:00 PM">5:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Any specific concerns or symptoms?"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" id="btn-back">&larr; Back</button>
+          <button type="submit" class="btn-primary btn-submit">Submit Appointment</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- ================= Success State ================= -->
+    <div class="success-state" id="success-state" style="display: none;">
+      <div class="success-icon-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3>Appointment Request Sent!</h3>
+      <div class="success-message">
+        {{ module.success_message | default("We have received your details and sent a confirmation to your email address.") }}
+      </div>
+      
+      <!-- Summary Card -->
+      <div class="summary-card">
+        <div class="summary-item">
+          <span class="summary-label">Service</span>
+          <span class="summary-value" id="summary-service"></span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Date</span>
+          <span class="summary-value" id="summary-date"></span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Time</span>
+          <span class="summary-value" id="summary-time"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 Debug Info -->
+  <div class="module-debug-info">
+    <span class="status-dot"></span> 
+    HubSpot Form Module — formId: <span class="highlight">619c1156-de0d-42bc-91d9-c02f5771e517</span> | portalId: 51203041
+  </div>
+
+</div>

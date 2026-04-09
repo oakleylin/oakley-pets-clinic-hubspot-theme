@@ -1,0 +1,219 @@
+.vet-services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: sans-serif;
+}
+
+/* Header Styles */
+.vet-header-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.vet-section-label {
+  display: inline-block;
+  background-color: #e6f7f5;
+  color: #1bb29e;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.vet-section-title {
+  font-size: 36px;
+  color: #1a202c;
+  margin-bottom: 16px;
+}
+
+.vet-section-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid & Card Styles */
+.vet-cards-grid {
+  display: grid;
+  /* 桌機固定 4 個一排 (4等份) */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.vet-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.vet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.vet-card-image-wrapper {
+  position: relative;
+  height: 200px;
+  flex-shrink: 0; 
+  background-color: #f1f5f9;
+}
+
+.vet-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vet-card-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-popular {
+  background-color: #1bb29e;
+  color: #fff;
+}
+
+.badge-category {
+  background-color: #fff;
+  color: #334155;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Card Content */
+.vet-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.vet-card-title {
+  font-size: 18px;
+  color: #1a202c;
+  margin: 0 0 12px 0;
+}
+
+.vet-card-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1; /* 讓按鈕可以對齊底部 */
+}
+
+.vet-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.meta-item.duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-item.price {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Buttons */
+.vet-book-btn {
+  display: inline-block;
+  width: fit-content; /* 讓寬度根據文字內容自動縮放 */
+  min-width: 180px; /* 給一個基礎寬度，才不會太短，你可以依喜好微調 */
+  margin: 0 auto; /* 讓按鈕水平置中 */
+  align-self: center; /* 確保它在 Flex 容器中完美置中 */
+  text-align: center;
+  padding: 10px 24px;
+  border: 1px solid #96F7E4;
+  background-color: #F0FDFA;
+  color: #1bb29e;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.vet-book-btn:hover {
+  background-color: #1bb29e;
+  color: #fff;
+}
+
+.vet-footer-action {
+  text-align: center;
+}
+
+.vet-view-all-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #96F7E4;
+  color: #1bb29e;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.vet-view-all-btn:hover {
+  background-color: #1bb29e;
+  color: #fff;
+}
+@media (max-width: 992px) {
+  .vet-cards-grid {
+    /* 加上 !important 強制覆蓋 */
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important; 
+  }
+}
+
+/* 當螢幕寬度小於 576px 時 */
+@media (max-width: 576px) {
+  .vet-cards-grid {
+    /* 改為 1fr，也就是一張卡片佔滿一整排 */
+    grid-template-columns: 1fr !important; 
+    gap: 20px !important; /* 單欄排版，間距可以稍微拉開一點讓畫面透氣 */
+  }
+  
+  .vet-card-content {
+    padding: 20px !important; /* 單欄卡片空間變大，內距稍微調回來 */
+  }
+  
+  .vet-card-title {
+    font-size: 18px !important; /* 標題可以大一點 */
+  }
+  
+  /* 按鈕一樣維持滿版 100%，比較好點擊 */
+  .vet-book-btn {
+    width: 100% !important;
+    min-width: unset !important;
+    box-sizing: border-box !important;
+    padding: 12px 0 !important;
+  }
+}
+}

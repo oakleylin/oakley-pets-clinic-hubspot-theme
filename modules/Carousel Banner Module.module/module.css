@@ -1,0 +1,185 @@
+/* ==========================================
+   1. 容器高度與背景處理 (已更新為 70vh)
+   ========================================== */
+.custom-hero-carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #1e293b;
+}
+
+/* 針對 HubSpot 選擇器的動態高度控制 */
+#hero-{{ name }}, 
+.custom-hero-carousel {
+  /* 全域字體設定 */
+  font-family: Arial, "Helvetica", sans-serif !important;
+  
+  /* 高度強制 70vh */
+  height: 70vh !important;
+  min-height: 70vh !important;
+  max-height: 70vh !important;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #1e293b;
+}
+
+/* 確保所有層級繼承字體與高度 */
+.custom-hero-carousel * {
+  font-family: Arial, "Helvetica", sans-serif !important;
+}
+
+.custom-hero-carousel .swiper-wrapper,
+.custom-hero-carousel .swiper-slide {
+  height: 100% !important;
+}
+
+/* ==========================================
+   2. 背景與遮罩
+   ========================================== */
+.slide-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* ==========================================
+   3. 內容排版 (防止跑位)
+   ========================================== */
+.slide-content-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  align-items: center; 
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+  color: #ffffff;
+}
+
+/* ==========================================
+   4. 文字樣式修正 (Arial)
+   ========================================== */
+.slide-badge {
+  display: inline-flex;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.slide-headline, 
+.slide-headline * {
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+  font-weight: 900 !important; /* Arial 粗體感 */
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  margin: 0 0 15px 0 !important;
+  letter-spacing: -0.5px; /* 讓 Arial 看起來更洗鍊 */
+}
+
+.slide-subtext {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: normal;
+}
+
+.slide-btn {
+  display: inline-block !important;
+  width: fit-content;
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  padding: 14px 35px !important;
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  font-size: 16px !important;
+}
+
+.slide-btn:hover {
+  background-color: #00a896 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* ==========================================
+   5. 文字動畫 (下淡出、上淡入)
+   ========================================= */
+.slide-badge, .slide-headline, .slide-subtext, .slide-btn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.swiper-slide-active .slide-badge,
+.swiper-slide-active .slide-headline,
+.swiper-slide-active .slide-subtext,
+.swiper-slide-active .slide-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swiper-slide-active .slide-badge    { transition-delay: 0.1s; }
+.swiper-slide-active .slide-headline { transition-delay: 0.25s; }
+.swiper-slide-active .slide-subtext  { transition-delay: 0.4s; }
+.swiper-slide-active .slide-btn      { transition-delay: 0.55s; }
+
+/* ==========================================
+   6. 控制 UI
+   ========================================== */
+.custom-hero-carousel .swiper-button-prev,
+.custom-hero-carousel .swiper-button-next {
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  z-index: 10 !important;
+}
+
+.custom-hero-carousel .swiper-pagination-bullet-active {
+  background: #00bfa5 !important;
+}
+
+/* ==========================================
+   7. 手機版修正
+   ========================================== */
+@media (max-width: 768px) {
+  #hero-{{ name }}, .custom-hero-carousel {
+    height: 450px !important; 
+  }
+  .slide-content-container { padding: 0 30px; }
+  .slide-headline, .slide-headline * { font-size: 1.8rem !important; }
+}

@@ -11,3 +11,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 .git/
+src/
+guidelines/
+index.html
+vite.config.ts
+postcss.config.mjs
+package.json
+README.md
+ATTRIBUTIONS.md

@@ -1,0 +1,30 @@
+<div class="trust-badges-wrapper">
+  <div class="trust-badges-container">
+    {% for item in module.badge_group %}
+      <div class="badge-item">
+        
+        {# 圖示區塊 #}
+        <div class="badge-icon-box">
+          {% if item.badge_icon.src %}
+            <img src="{{ item.badge_icon.src }}" alt="{{ item.badge_icon.alt }}" class="badge-fixed-img">
+          {% endif %}
+        </div>
+
+        {# 文字內容區塊 #}
+        <div class="badge-text-content">
+          {# 這裡動態抓取你設定的顏色，若沒設定則預設為黑色 #}
+          <div class="badge-value" style="color: {{ item.value_color.color or '#000000' }};">
+            {{ item.badge_value }}
+          </div>
+          
+          <div class="badge-label">{{ item.badge_label }}</div>
+          
+          {% if item.badge_subtext %}
+            <div class="badge-subtext">{{ item.badge_subtext }}</div>
+          {% endif %}
+        </div>
+        
+      </div>
+    {% endfor %}
+  </div>
+</div>

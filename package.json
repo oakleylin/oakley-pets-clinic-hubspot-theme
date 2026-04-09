@@ -6,9 +6,9 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "upload": "hs cms upload --account=CMS_team oakley-pets-clinic-theme oakley-pets-clinic-theme",
-    "watch": "hs cms watch --account=CMS_team --initial-upload oakley-pets-clinic-theme yourname-pets-clinic-theme",
-    "preview": "hs cms theme preview oakley-pets-clinic-theme oakley-pets-clinic-theme"
+    "upload": "hs cms upload --account=CMS_team . oakley-pets-clinic-theme",
+    "watch": "hs cms watch --account=CMS_team --initial-upload . yourname-pets-clinic-theme",
+    "preview": "hs cms theme preview --account=CMS_team --src . --dest oakley-pets-clinic-theme"
 },
   "dependencies": {
     "@emotion/react": "11.14.0",

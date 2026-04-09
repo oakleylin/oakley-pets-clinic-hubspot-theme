@@ -1,0 +1,94 @@
+<section class="vet-services-section">
+  <!-- Section 標頭 -->
+  <div class="vet-header-container">
+    {% if module.section_label %}
+      <div class="vet-section-label">
+        <span class="star-icon">★</span> {{ module.section_label }}
+      </div>
+    {% endif %}
+    
+    {% if module.section_title %}
+      <h2 class="vet-section-title">{{ module.section_title }}</h2>
+    {% endif %}
+    
+    {% if module.section_subtitle %}
+      <p class="vet-section-subtitle">{{ module.section_subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <!-- HubDB 資料處理與設定 -->
+  {% set table_id = module.hubdbtable_field || 241394029 %}
+  {% set queryparam = "" %}
+  
+  {# 判斷是否只顯示 Popular 項目 #}
+  {% if module.show_popular_only %}
+    {# 假設 popular 是 dropdown 欄位，值為 yes #}
+    {% set queryparam = queryparam ~ "&popular=yes" %}
+  {% endif %}
+
+  {# 撈取資料 #}
+  {% set services = hubdb_table_rows(table_id, queryparam) %}
+
+  <!-- 卡片網格區塊 -->
+  <div class="vet-cards-grid">
+    {% for row in services %}
+      <div class="vet-card">
+        
+        <!-- 卡片圖片與標籤 -->
+       <div class="vet-card-image-wrapper">
+  {% if row.image.url %}
+    <img src="{{ row.image.url }}" alt="{{ row.name }}">
+  {% endif %}
+          
+          <div class="vet-card-badges">
+            {# 判斷 Popular 標籤 #}
+            {% if row.popular.name == 'yes' or row.popular == 'yes' %}
+              <span class="badge badge-popular">Popular</span>
+            {% endif %}
+            
+            {# 判斷分類標籤 #}
+            {% if row.category %}
+              <span class="badge badge-category">{{ row.category.name|default(row.category) }}</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- 卡片內容 -->
+        <div class="vet-card-content">
+          <h3 class="vet-card-title">{{ row.name }}</h3>
+          
+          {# 注意：HubDB截圖中未看到 description，此處預留欄位呼叫 #}
+          <p class="vet-card-desc">{{ row.description }}</p>
+          
+          <!-- 卡片資訊 (時間、價格) -->
+          <div class="vet-card-meta">
+            {% if row.duration %}
+              <span class="meta-item duration">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                {{ row.duration }}
+              </span>
+            {% endif %}
+            
+            {% if module.show_price and row.price %}
+              <span class="meta-item price">{{ row.price }}</span>
+            {% endif %}
+          </div>
+          
+          <!-- 卡片按鈕 -->
+          <a href="#" class="vet-book-btn">Book Now &rarr;</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- 底部查看全部按鈕 -->
+  {% if module.cta_text %}
+    <div class="vet-footer-action">
+      <a href="{{ module.cta_url.href }}" class="vet-view-all-btn"
+        {% if module.cta_url.open_in_new_tab %}target="_blank"{% endif %}
+        {% if module.cta_url.rel %}rel="{{ module.cta_url.rel }}"{% endif %}>
+        {{ module.cta_text }} &rarr;
+      </a>
+    </div>
+  {% endif %}
+</section>

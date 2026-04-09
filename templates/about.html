@@ -1,0 +1,42 @@
+<!--
+  templateType: "page"
+  label: "About"
+  screenshotPath: "../images/template-previews/about.png"
+  isAvailableForNewContent: true
+-->
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page_meta.html_title }}</title>
+  <meta name="description" content="{{ page_meta.meta_description }}">
+  
+  {# 載入 HubSpot 標準頭部資源 #}
+  {{ standard_header_includes }}
+</head>
+<body class="site-body">
+  
+  <div class="header-sticky-wrapper">
+    {# 🚀 這裡就是你的新 Header！ #}
+    {# 注意：path 請務必改成你建立的那個「🧩 拼圖圖示」Module 的正確路徑 #}
+    {% module "site_header" 
+       path="/oakley-pets-clinic-theme/templates/partials/header.module", 
+       label="Clinic Header" 
+    %}
+  </div>
+
+  <main id="main-content" class="body-container">
+    {% block body %}
+      {# 這裡會被 about.html 的內容填滿 #}
+    {% endblock body %}
+  </main>
+
+  <footer class="site-footer">
+    {# 這裡放你的 Footer 模組 #}
+    {% dnd_area "footer_area" label="Footer Area" %}{% end_dnd_area %}
+  </footer>
+
+  {# 載入 HubSpot 標準底部資源 #}
+  {{ standard_footer_includes }}
+</body>
+</html>

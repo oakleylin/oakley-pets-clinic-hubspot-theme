@@ -1,0 +1,86 @@
+[ {
+  "id" : "b33c1167-8467-ffec-2969-5074b8578901",
+  "name" : "section_label",
+  "label" : "section_label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text"
+}, {
+  "id" : "e57b7256-a13c-c7ec-52e3-0c2fb636f3fc",
+  "name" : "section_title",
+  "label" : "section_title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text"
+}, {
+  "id" : "fb903661-ecc4-859e-d804-5929da22177a",
+  "name" : "section_subtitle",
+  "label" : "section_subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text"
+}, {
+  "id" : "695ca32f-b06e-6bfb-74fa-8dcabfd81820",
+  "name" : "hubdbtable_field",
+  "label" : "HubDB table",
+  "required" : true,
+  "locked" : false,
+  "display_width" : null,
+  "type" : "hubdbtable",
+  "default" : 241394029
+}, {
+  "id" : "b8204cf6-a8b6-9434-e870-674b5d0f7303",
+  "name" : "show_popular_only",
+  "label" : "show_popular_only",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "display_width" : null,
+  "type" : "boolean",
+  "default" : true
+}, {
+  "id" : "6c2f4970-2257-58ed-5f11-603790027b1e",
+  "name" : "show_price",
+  "label" : "show_price",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "display_width" : null,
+  "type" : "boolean",
+  "default" : false
+}, {
+  "id" : "38a4d31a-3f68-89c7-85cf-036415069cb0",
+  "name" : "cta_text",
+  "label" : "cta_text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "View All Services →"
+}, {
+  "id" : "c0c9f86e-fdba-76ce-22b8-4772a7e94b5c",
+  "name" : "cta_url",
+  "label" : "cta_url",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "FILE", "CONTENT", "BLOG", "CALL_TO_ACTION", "PAYMENT", "EMAIL_ADDRESS", "PHONE_NUMBER", "WHATSAPP_NUMBER" ],
+  "show_advanced_rel_options" : false,
+  "display_width" : null,
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "type" : "EXTERNAL",
+      "href" : ""
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+} ]

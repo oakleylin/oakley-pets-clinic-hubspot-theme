@@ -1,0 +1,76 @@
+[ {
+  "id" : "526ef37f-b6d6-8f78-78ad-ba54e4780e77",
+  "name" : "badge_group",
+  "label" : "badge group",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "26476974-f2f2-6564-7d97-a39a8aa1325d",
+    "name" : "badge_icon",
+    "label" : "badge_icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    }
+  }, {
+    "id" : "49b5ca00-fa5c-91d6-95f9-384f8d236bc7",
+    "name" : "badge_value",
+    "label" : "badge_value",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  }, {
+    "id" : "316c5013-9c8b-a91e-824b-8769586467f2",
+    "name" : "badge_label",
+    "label" : "badge_label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  }, {
+    "id" : "4a8051c3-9901-752b-9b7f-d85fa4e1e09e",
+    "name" : "badge_subtext",
+    "label" : "badge_subtext",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text"
+  }, {
+    "id" : "44771aff-d39b-66d7-5f87-062eeee427ce",
+    "name" : "value_color",
+    "label" : "value_color",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "color",
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ ]
+} ]

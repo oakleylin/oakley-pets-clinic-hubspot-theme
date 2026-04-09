@@ -1,0 +1,70 @@
+<header class="site-header">
+  <div class="header-container">
+    
+    <!-- 左側 Logo 區塊 -->
+    <a href="/" class="header-logo">
+      <div class="logo-icon-wrapper">
+        {% if module.icon.src %}
+          <img src="{{ module.icon.src }}" alt="{{ module.title }}">
+        {% else %}
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path><polyline points="3 12 8 12 10 7 14 17 16 12 21 12"></polyline></svg>
+        {% endif %}
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">{{ module.title|default("PawClinic") }}</div>
+        <div class="logo-subtitle">{{ module.subtitle|default("PET VETERINARY CLINIC") }}</div>
+      </div>
+    </a>
+
+    <!-- 手機版漢堡選單按鈕 -->
+    <button class="mobile-toggle-btn" id="mobileMenuToggle" aria-label="Toggle menu">
+      <!-- 漢堡圖示 (預設顯示) -->
+      <svg class="icon-hamburger" viewBox="0 0 24 24" width="28" height="28" stroke="#334155" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <!-- 關閉圖示 X (預設隱藏) -->
+      <svg class="icon-close" viewBox="0 0 24 24" width="28" height="28" stroke="#334155" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <!-- 導覽列與功能區的外層 (手機版時會隱藏/展開) -->
+    <div class="header-menu-wrapper" id="headerMenuWrapper">
+      
+      <!-- 中間導覽列 -->
+      <nav class="header-nav">
+        <ul class="nav-list">
+          {% for item in module.field_group %}
+            <li class="nav-item">
+              {% set nav_url = item.link.url.href|default('#') %}
+              <a href="{{ nav_url }}" class="nav-link {% if request.path == nav_url %}active{% endif %}">
+                {{ item.labal|default("未命名選單") }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <!-- 手機版分隔線 -->
+      <div class="mobile-divider"></div>
+
+      <!-- 右側功能區 -->
+      <div class="header-actions">
+        <!-- 圖片中的語系切換器設計 -->
+        <div class="lang-switcher-wrapper">
+          <div class="mobile-lang-label">Language / 語言</div>
+          <div class="lang-btn-group">
+            <button class="lang-btn active"><span class="lang-sm">US</span> EN</button>
+            <button class="lang-btn"><span class="lang-sm">TW</span> 中文</button>
+          </div>
+        </div>
+
+        <!-- CTA 按鈕 -->
+        {% if module.cta_text %}
+          <a href="{{ module.cta_link.url.href|default('#') }}" class="header-cta"
+             {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if module.cta_link.no_follow %}rel="nofollow"{% endif %}>
+            {{ module.cta_text }}
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</header>
