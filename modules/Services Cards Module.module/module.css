@@ -87,7 +87,7 @@
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .badge-popular {
@@ -139,7 +139,7 @@
 }
 
 .meta-item.price {
-  font-weight: 600;
+  font-weight: 400;
   color: #1a202c;
 }
 
@@ -157,7 +157,7 @@
   color: #1bb29e;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   transition: all 0.2s ease;
 }
 .vet-book-btn:hover {
@@ -176,7 +176,7 @@
   color: #1bb29e;
   border-radius: 24px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   transition: all 0.2s ease;
 }
 

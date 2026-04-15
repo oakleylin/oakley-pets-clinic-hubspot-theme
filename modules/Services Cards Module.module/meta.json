@@ -2,6 +2,6 @@
   "global" : false,
   "content_types" : [ "KNOWLEDGE_BASE", "QUOTE", "QUOTE_TEMPLATE", "CASE_STUDY", "SITE_PAGE", "SUBSCRIPTION", "CUSTOMER_PORTAL", "BLOG_LISTING", "BLOG_POST", "MEMBERSHIP", "LANDING_PAGE", "QUOTE_BLUEPRINT", "WEB_INTERACTIVE" ],
   "host_template_types" : [ "PAGE", "BLOG_LISTING", "BLOG_POST" ],
-  "module_id" : 210664617381,
+  "module_id" : 211007916430,
   "is_available_for_new_content" : true
 }

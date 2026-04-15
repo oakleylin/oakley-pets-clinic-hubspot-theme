@@ -1,43 +1,327 @@
 <!--
-  templateType: global_partial
-  label: Footer
+  templateType: "global_partial"
+  label: "Footer"
+  isAvailableForNewContent: false
 -->
-<footer class="footer">
-  {% dnd_area "footer"
-    label="Footer",
-    class="footer__container content-wrapper"
-  %}
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawClinic Footer 測試</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    {# Social follow and copyright #}
+  <style>
+    /* 清除瀏覽器預設邊距 */
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-    {% dnd_section %}
-      {% dnd_column %}
-        {% dnd_row %}
-          {% dnd_module path="../../modules/social-follow" %}
-            {% module_attribute "social_link" is_json=True %}
-              [
-                {"social_account": "facebook-f"},
-                {"social_account": "linkedin-in"},
-                {"social_account": "twitter"},
-                {"social_account": "instagram"}
-              ]
-            {% end_module_attribute %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-        {% dnd_row
-          margin={
-            "top": 12,
-            "bottom": 12
-          }
-        %}
-          {% dnd_module
-            path="@hubspot/rich_text",
-            html='<div style="text-align: center; font-size: 0.7rem;"><span>© {{ year }} All rights reserved.</span></div>'
-          %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
+    /* --- 以下是你提供的 CSS --- */
 
-  {% end_dnd_area %}
-</footer>
+    /* Footer 全域設定 */
+    .pawclinic-footer {
+      background-color: #111827; /* 深藍/黑背景 */
+      color: #9ca3af; /* 灰色內文 */
+      font-family: sans-serif;
+      padding: 60px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #374151; /* 分隔線 */
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    /* 標題設定 */
+    .footer-heading {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    /* --- 第 1 欄：品牌 --- */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      background-color: #14b8a6; /* 湖水綠 */
+      color: #ffffff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      color: #14b8a6;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* 社群按鈕 */
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icons a {
+      background-color: #1f2937;
+      color: #9ca3af;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: #374151;
+      color: #ffffff;
+    }
+
+    /* --- 第 2 欄：導覽列 --- */
+    .footer-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-menu li {
+      margin-bottom: 12px;
+    }
+
+    .footer-menu a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-menu a:hover {
+      color: #14b8a6;
+    }
+
+    /* --- 第 3 & 4 欄：聯絡與時間 --- */
+    .contact-list, .hours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li, .hours-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .text-teal {
+      color: #14b8a6;
+      margin-top: 4px;
+    }
+
+    .hours-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hours-text .day {
+      color: #ffffff;
+    }
+
+    .hours-text .time {
+      font-size: 13px;
+    }
+
+    .emergency-line {
+      color: #ef4444; /* 紅色 */
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .dot-red {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #ef4444;
+      border-radius: 50%;
+    }
+
+    /* --- 底部版權區 --- */
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-top: 20px;
+      font-size: 12px;
+    }
+
+    .dot-orange {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: #f59e0b;
+      border-radius: 50%;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* RWD 手機版適應 */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <footer class="pawclinic-footer">
+    <div class="footer-container">
+      
+      <div class="footer-col brand-col">
+        <div class="brand-logo">
+          <div class="logo-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">PawClinic</span>
+            <span class="brand-subtitle">PET VETERINARY CLINIC</span>
+          </div>
+        </div>
+        <p class="brand-desc">
+          Compassionate, expert veterinary care for every pet. Serving our community since 2015.
+        </p>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col nav-col">
+        <h4 class="footer-heading">NAVIGATION</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Our Doctors</a></li>
+          <li><a href="#">Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">CONTACT</h4>
+        <ul class="contact-list">
+          <li>
+            <i class="fas fa-map-marker-alt text-teal"></i> 
+            <span>456 Paw Avenue, Suite 1 Pet Town, CA 90210</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt text-teal"></i> 
+            <span>(555) 123-4567</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope text-teal"></i> 
+            <span>hello@pawclinic.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col hours-col">
+        <h4 class="footer-heading">CLINIC HOURS</h4>
+        <ul class="hours-list">
+          <li>
+            <i class="far fa-clock text-teal"></i>
+            <div class="hours-text">
+              <span class="day">Monday – Friday</span>
+              <span class="time">8:00 AM – 7:00 PM</span>
+            </div>
+          </li>
+          <li>
+            <i class="far fa-clock text-teal"></i>
+            <div class="hours-text">
+              <span class="day">Saturday</span>
+              <span class="time">9:00 AM – 5:00 PM</span>
+            </div>
+          </li>
+          <li>
+            <i class="far fa-clock text-teal"></i>
+            <div class="hours-text">
+              <span class="day">Sunday</span>
+              <span class="time">Emergency Only</span>
+            </div>
+          </li>
+        </ul>
+        <div class="emergency-line">
+          <span class="dot-red"></span> 24/7 Emergency Line: (555) 999-0000
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 PawClinic Veterinary Services. All rights reserved.</p>
+      <p>Built with HubSpot CMS <span class="dot-orange"></span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

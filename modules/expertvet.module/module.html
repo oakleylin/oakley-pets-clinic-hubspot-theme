@@ -1,0 +1,33 @@
+<div class="custom-doctor-module">
+  {# 取得資料表名稱，請確認你建立的 HubDB 名稱是這個 #}
+  {% set table_id = "clinic_doctors" %}
+  {% set query = "limit=4" %}
+  {% set doctors = hubdb_table_rows(248894208, query) %}
+
+  <div class="header-section">
+    <span class="badge">Meet the Team</span>
+    <h2>Our Expert Veterinarians</h2>
+    <p>Board-certified doctors with deep specializations, united by a shared commitment to the health and happiness of every patient.</p>
+  </div>
+
+  <div class="doctor-grid">
+    {% for doctor in doctors %}
+      <div class="doctor-card">
+        {# 加上內聯樣式載入圖片 #}
+        <div class="image-container" style="background-image: url('{{ doctor.photo.url }}');">
+          <div class="overlay">
+            <p class="doctor-title">{{ doctor.title }}</p>
+            <h3 class="doctor-name">{{ doctor.name }}</h3>
+          </div>
+        </div>
+        <div class="tag-container">
+          <span class="specialty-tag">{{ doctor.specialty }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="button-wrapper">
+    <a href="/doctors" class="view-all-btn">View All Doctors</a>
+  </div>
+</div>

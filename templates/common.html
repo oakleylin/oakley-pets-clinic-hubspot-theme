@@ -1,0 +1,40 @@
+<!--
+  templateType: "page"
+  isAvailableForNewContent: true
+-->
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page_meta.html_title or "Oakley Pets Clinic" }}</title>
+  <meta name="description" content="{{ page_meta.meta_description }}">
+
+  {# ✅ 錯誤 1 & 3 的解藥：必須放在 </head> 之前 #}
+  {{ standard_header_includes }}
+</head>
+<body class="site-body">
+
+  <header class="header-section">
+    {# 這裡用最穩定的方式載入 Header #}
+    {% module "site_header" 
+       path="/oakley-pets-clinic-theme/templates/partials/header.module", 
+       label="Clinic Header" 
+    %}
+  </header>
+
+  <main id="main-content">
+    {% block body %}
+      {# 加入 DND 區域確保它在編輯器能動 #}
+      {% dnd_area "main_content" label="Main Content Area" %}{% end_dnd_area %}
+    {% endblock body %}
+  </main>
+
+  <footer class="site-footer">
+    {# 這裡載入 Footer #}
+    {% include "/oakley-pets-clinic-theme/templates/partials/footer.html" %}
+  </footer>
+
+  {# ✅ 錯誤 2 & 4 的解藥：必須放在 </body> 之前 #}
+  {{ standard_footer_includes }}
+</body>
+</html>

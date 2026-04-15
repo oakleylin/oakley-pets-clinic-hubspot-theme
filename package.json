@@ -7,8 +7,11 @@
     "build": "vite build",
     "dev": "vite",
     "upload": "hs cms upload --account=CMS_team . oakley-pets-clinic-theme",
+    "upload:training": "hs cms upload --account=hubspot-cms-training . oakley-pets-clinic-theme",
     "watch": "hs cms watch --account=CMS_team --initial-upload . yourname-pets-clinic-theme",
-    "preview": "hs cms theme preview --account=CMS_team --src . --dest oakley-pets-clinic-theme"
+    "watch:training": "hs cms watch --account=hubspot-cms-training --initial-upload . oakley-pets-clinic-theme",
+    "preview": "hs cms theme preview --account=CMS_team --src . --dest oakley-pets-clinic-theme",
+    "preview:training": "hs cms theme preview --account=hubspot-cms-training --src . --dest oakley-pets-clinic-theme"
 },
   "dependencies": {
     "@emotion/react": "11.14.0",
